@@ -1,0 +1,20 @@
+程序风格修正作业
+
+学号：2019211285
+姓名：窦天杰
+程序：fifo_queue.c
+问题1：第7行变量命名与结构体名重复，应修改为：int value;
+问题2：第13、14行变量命名重复，应将queue_head和queue_tail分别改为head和tail
+问题3：第59行常数含义不明显，应在代码开头加上#define queue_length 10;
+问题4：第67行变量命名不恰当，应将succes修改为issuccess
+
+程序：serialize_json.cpp
+问题1：第22行表达式逻辑不清晰，应改为if(*c<'\x00' || *c>'\x1f')
+问题2：第37行布尔变量命名冗杂，应改为bool isfirst = true
+问题3：第12行应该使用迭代器进行遍历
+问题4：第51行命名含义不清晰，应改为map<string,string> initial_data;
+
+程序：split_str.cpp
+问题1：第4行与第7行的注释重复，可以合并为//返回值：正确则返回分解出来的短字符数量，错误则返回0
+问题2：第16行的while循环按照习惯用法应使用for循环代替为for(;buffer[i] == ' ' || buffer[i] == '\t';i++)
+问题3：第25行与第33行出现的常数31和30意义不明确，应在开头加上#define max_loc 31;和#define max_row 30;

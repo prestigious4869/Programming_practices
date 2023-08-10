@@ -1,0 +1,19 @@
+首先使用命令
+cc kmp_bad.c -o kmp_bad.out
+编译kmp_bad.c文件。
+
+发现编译器报错：
+warning: function returns address of local variable [-Wreturn-local-addr]
+大概就是局部变量的地址不能作为返回值。
+
+打开.c文件后发现在bulid_next()函数中，需要创建的next数组是局部变量，在函数结束后地址空间将会释放，
+因此我们可以将int next[256]改为static int next[256]，使得next在任何函数内都可访问，就可以解决该问题。
+
+
+
+接着输入了一组数据检查程序运行情况，发现next数组的输出最后和pattern数组数量不匹配，且换了一组数据后
+也是一样，都是next数组最后多出一个数字0，我首先检查了bulid_next()函数，但是里面的循环条件是n<length，
+所以应该不会对length以外的位置进行操作。
+
+那问题应该就在next数组的输出上了，果然在print_next()函数中，不论是打印pattern数组还是next数组，循环条件
+都是i <= length，故这里将=去掉，再重新编译运行，就不会出现上述问题了。

@@ -1,0 +1,62 @@
+default = "您好，欢迎来到航班购票系统","请问您的目的地是哪里呢？（北京、广州）";
+robot_name = "tickets";
+window_size = (1200,800);
+
+ask_des = "请问您的目的地是哪里呢？（北京、广州）";
+ask_date = "请问您希望哪天出发呢？（明天、后天）";
+ask_id = "请输入您期望的航班序号。";
+success1 = "恭喜您，飞往";
+success2 = "的航班预定成功，航班号：";
+
+begin 0:
+"北京"->ask_date
+		jump 1;
+"广州"->ask_date
+		jump 2;
+
+else->ask_des;
+
+begin 1:
+"明天"->"明天飞往北京的航班有：","1.上午十点","2.下午四点",ask_id
+		jump 3;
+
+"后天"->"后天飞往北京的航班有：","1.上午十一点","2.下午两点",ask_id
+		jump 4;
+		
+"广州"->"请选择明天或后天飞往广州的航班"
+		jump 2;
+
+else->ask_date;
+		
+begin 2:
+"明天"->"明天飞往广州的航班有：","1.上午十点","2.下午四点",ask_id
+		jump 5;
+"后天"->"后天飞往广州的航班暂未开售！";
+"北京"->"请选择明天或后天飞往北京的航班"
+		jump 1;
+else->ask_date;
+
+begin 3:
+"1"->success1 + "北京" + success2 + "1.明天上午十点","程序已退出"
+	jump 6;
+"2"->success1 + "北京" + success2 + "2.明天下午四点","程序已退出"
+	jump 6;
+else->ask_id;
+
+begin 4:
+"1"->success1 + "北京" + success2 + "1.后天上午十一点","程序已退出"
+	jump 6;
+"2"->success1 + "北京" + success2 + "2.后天下午两点","程序已退出"
+	jump 6;
+else->ask_id;
+
+begin 5:
+"1"->success1 + "广州" + success2 + "1.明天上午十点","程序已退出"
+	jump 6;
+"2"->success1 + "广州" + success2 + "2.明天下午四点","程序已退出"
+	jump 6;
+else->ask-id;
+
+begin 6:
+else->ask_des
+	jump 0;

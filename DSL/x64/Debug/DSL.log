@@ -1,0 +1,18 @@
+﻿  Reading Qt configuration (D:/QT/5.12.3/msvc2017_64/bin/qmake)
+  uic DSL.ui
+  uic Request.ui
+  rcc DSL.qrc
+  moc DSL.h
+  moc Request.h
+   RCC: Warning: No resources in 'G:\college\澶т笁\绋嬪簭璁捐瀹炶返\homework\DSL\DSL.qrc'.
+  eachcondition.cpp
+  Request.cpp
+  DSL.cpp
+  interpreter.cpp
+  main.cpp
+D:\Windows Kits\10\Include\10.0.19041.0\um\wingdi.h(118,1): warning C4005: “ERROR”: 宏重定义 (编译源文件 DSL.cpp)
+G:\college\大三\程序设计实践\homework\DSL\interpreter.h(10): message : 参见“ERROR”的前一个定义 (编译源文件 DSL.cpp)
+  qrc_DSL.cpp
+  moc_DSL.cpp
+  moc_Request.cpp
+  DSL.vcxproj -> G:\college\大三\程序设计实践\homework\DSL\x64\Debug\DSL.exe
